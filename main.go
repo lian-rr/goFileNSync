@@ -1,11 +1,11 @@
 package main
 
-import fh "./filehistory"
+import fh "./metafile"
 
 func main() {
 
-	fh.WritingRouting()
+	fh.WritingRouting("test/")
 
-	fh.ReadingRoutine()
+	// fh.ReadingRoutine()
 
 }
