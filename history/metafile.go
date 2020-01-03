@@ -1,4 +1,4 @@
-package metafile
+package history
 
 import (
 	"fmt"
@@ -21,11 +21,13 @@ func New(name string, size int, modTime time.Time) Metafile {
 	}
 }
 
-func metafileToBytes(mf Metafile) []byte {
+// ToBytes serializes the Metafile to a slice of bytes
+func (mf Metafile) ToBytes() []byte {
 	return []byte(fmt.Sprintf("%s %d %d\n", mf.Name, mf.Size, mf.ModTime.UnixNano()))
 }
 
-func stringToMetafile(data string) (Metafile, error) {
+// StringToMetafile Parse string to a Metafile
+func StringToMetafile(data string) (Metafile, error) {
 	var name string
 	var size int
 	var modTime int64

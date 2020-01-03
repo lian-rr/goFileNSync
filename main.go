@@ -1,11 +1,19 @@
 package main
 
-import fh "./metafile"
+import (
+	mh "./history"
+)
 
 func main() {
 
-	fh.WritingRouting("test/")
+	metafiles, err := mh.GetMetafiles("test/")
 
-	// fh.ReadingRoutine()
+	if err != nil {
+		panic(err)
+	}
+
+	mh.SaveHistory(metafiles, mh.LocalHistoryPath)
+
+	// metafiles, err = fh.LoadHistory(fh.LocalHistoryPath)
 
 }
